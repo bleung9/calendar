@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Driver Name</th>
+      <th>Type</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.driver.name %>
+        <td><%= task.task_type %></td>
+        <td><%= task.start_time.strftime("%B %d %Y %I:%M%p") %></td>
+        <td><%= task.end_time.strftime("%B %d %Y %I:%M%p") %></td>
+        <td><%= task.location %></td>
+        <td><%= link_to 'Show', driver_task_path(task.driver_id, task) %></td>
+        <td><%= link_to 'Edit', edit_driver_task_path(task.driver_id, task) %></td>
+        <td><%= link_to 'Destroy', driver_task_path(task.driver_id, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show driver calendar', driver_tasks_path(task.driver_id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
+
+<br>
+<br>
+<br>
+<br>
+
+<%= month_calendar events: @tasks do |date, tasks| %>
+  <%= date %>
+
+  <% tasks.each do |task| %>
+    <div>
+      <%= link_to "#{task.task_type}", driver_task_path(task.driver_id, task) %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,57 @@
+
+<% if driver %>
+  <% model = [driver, task] %>
+<% else %>
+  <% model = [task] %>
+<% end %>
+
+<%= form_with(model: model, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if !driver %>
+    <div class="driver">
+      <%= form.label :driver_id %>
+      <%= form.select :driver_id, options_for_select(driver_names) %>
+    </div>
+    <br>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :task_type %>
+    <%= form.select :task_type, options_for_select(task_types) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.datetime_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
