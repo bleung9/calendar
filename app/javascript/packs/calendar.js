@@ -4,7 +4,7 @@
 require('jquery')
 
 $(document).on('turbolinks:load', function(){
-  console.log("fuck you");
+  console.log("hihihi");
   eventCalendar();  
 });
 $(document).on('turbolinks:before-cache', clearCalendar);
