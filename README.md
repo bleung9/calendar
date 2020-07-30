@@ -54,7 +54,7 @@ rails s -b 0.0.0.0
 To open up a console:
 rails c
 
-To run all tests:
+To run all tests (run this in the directory that you cloned the repo into, not rails console):
 rspec
 OR
 bundle exec rspec
@@ -105,7 +105,7 @@ rails s -b 0.0.0.0
 To open up a console:
 rails c
 
-To run all tests:
+To run all tests (run this in the directory that you cloned the repo into, not rails console):
 rspec
 OR
 bundle exec rspec
