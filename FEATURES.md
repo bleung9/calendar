@@ -1,5 +1,15 @@
 All visible features in this app should work as shown.
 
+To start, go to http://localhost:3000/drivers to create drivers.
+
+http://localhost:3000/tasks is the calendar w/ tasks for all drivers
+
+http://localhost:3000/drivers/1/tasks would be the calendar for driver with id: 1. To generate csv's for a specific driver, click on "Generate CSV for 2020 tasks". All CSV's for the required time intervals will be in the `reports/` folder
+
+http://localhost:3000/drivers/1/tasks/1/ would be the details for task with id: 1 (associated with driver with id: 1)
+
+
+
 Extras:
 
 - create, update, and delete drivers
