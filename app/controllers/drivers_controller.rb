@@ -50,20 +50,6 @@ class DriversController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  # def show_calendar
-  #   driver_id = params[:driver][:driver_id].to_i
-  #   @driver= Driver.find(driver_id)
-  #   binding.pry
-  #   respond_to do |format|
-  #     format.html { redirect_to driver_tasks_path(driver_id) }
-  #   end
-  # end
-
-  # <%= form_with(url: show_calendar_path, method: :get, remote: false) do |form| %>
-  #   <%= collection_select(:driver, :driver_id, Driver.all, :id, :name) %>
-  #   <%= submit_tag("Load calendar") %>
-  # <% end %>
     
   private
     def set_driver

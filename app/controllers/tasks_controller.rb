@@ -14,12 +14,6 @@ class TasksController < ApplicationController
     @tasks = Task.all.order(:start_time)
   end
 
-  def generate_csv
-  end
-
-  def load_calendar
-  end
-  
   def index
     @tasks = Task.where(driver: @driver).order(:start_time)
   end

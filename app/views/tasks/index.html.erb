@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'calendar', 'data-turbolinks-track': 'reload' %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Tasks</h1>
@@ -48,7 +50,9 @@
 <br>
 <br>
 
-<%= month_calendar events: @tasks do |date, tasks| %>
+<div id="calendar"></div>
+
+<%= week_calendar number_of_weeks: 2, events: @tasks do |date, tasks| %>
   <%= date %>
 
   <% tasks.each do |task| %>

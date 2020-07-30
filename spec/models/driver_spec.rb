@@ -14,5 +14,11 @@ RSpec.describe Driver, type: :model do
       
       expect(driver.valid?).to eq(false)
     end
+
+    it "is invalid if new driver's name is the same as an existing driver's" do
+      Driver.create!(name: "John Doe")
+      
+      expect(driver.valid?).to eq(false)
+    end
   end
 end

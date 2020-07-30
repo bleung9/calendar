@@ -44,18 +44,16 @@ RSpec.describe Task, type: :model do
       expect(task.valid?).to eq(false)
     end
 
-    it "is invalid if its start time is later or the same as its end time" do
+    it "is invalid if its start time is later or the same as its end time (#start_before_end)" do
       task.start_time = Time.now + 10
       task.end_time = Time.now
-
       expect(task.valid?).to eq(false)
 
       task.start_time = task.end_time = Time.now
-
       expect(task.valid?).to eq(false)
     end
 
-    it "is invalid if it overlaps with another task" do
+    it "is invalid if it overlaps with another task (#no_overlap)" do
       Task.create(task_type: "pickup", start_time: Time.now - 100, end_time: Time.now + 100, 
         description: "i am a description", location: "Toronto", driver: driver)
       
@@ -70,7 +68,7 @@ RSpec.describe Task, type: :model do
 
     it "is invalid if it doesn't have a location" do
       task.location = nil
-      
+
       expect(task.valid?).to eq(false)
     end
   end

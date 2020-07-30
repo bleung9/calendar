@@ -40,12 +40,12 @@
 <br>
 <br>
 
-<%= month_calendar events: @tasks do |date, tasks| %>
+<%= week_calendar number_of_weeks: 2, events: @tasks do |date, tasks| %>
   <%= date %>
 
   <% tasks.each do |task| %>
     <div>
-      <%= link_to "#{task.task_type}", driver_task_path(task.driver_id, task) %>
+      <%= link_to "#{task.task_type} (#{task.start_time.strftime("%I:%M%p")} to #{task.end_time.strftime("%I:%M%p")})", driver_task_path(task.driver_id, task) %>
     </div>
   <% end %>
 <% end %>

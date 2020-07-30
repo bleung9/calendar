@@ -2,4 +2,4 @@
 
 <%= render 'form', task: @task, driver: @driver, driver_names: @driver_names, task_types: @task_types %>
 
-<%= link_to 'Back', driver_tasks_path %>
+<%= link_to 'Back', driver_tasks_path(@driver) %>

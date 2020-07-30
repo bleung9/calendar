@@ -2,18 +2,16 @@ class Task < ApplicationRecord
   belongs_to :driver
 
   validates_presence_of :task_type, :start_time, :end_time, :description, :location
-  validate :valid_type?
-  validate :no_overlap
-  validate :start_before_end
-
+  validate :valid_type?,  :no_overlap?, :start_before_end?
+  
   VALID_TASK_TYPES = ["pickup", "delivery", "other"]
 
   def valid_type?
     errors.add(:task_type, "must be a valid type of task") if !VALID_TASK_TYPES.include?(task_type&.downcase)
   end
 
-  def no_overlap
-    overlapping_tasks = Task.where('driver_id = ? AND (? BETWEEN start_time AND end_time OR ? BETWEEN start_time AND end_time)', driver_id, start_time, end_time)
+  def no_overlap?
+    overlapping_tasks = Task.where('driver_id = ? AND (? != start_time AND ? != end_time) AND (? BETWEEN start_time AND end_time OR ? BETWEEN start_time AND end_time) ', driver_id, start_time, end_time, start_time, end_time)
     if overlapping_tasks.exists?
       tasks_afterwards = Task.where('driver_id = ? AND ? < end_time', driver_id, start_time).order(:start_time).pluck(:start_time, :end_time)
       tasks_afterwards.each_with_index do |task, i|
@@ -33,7 +31,7 @@ class Task < ApplicationRecord
     end
   end
 
-  def start_before_end
+  def start_before_end?
     errors.add(:start_time, "must come after end time") if start_time && end_time && start_time >= end_time
   end
 end
