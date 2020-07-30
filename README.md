@@ -1,4 +1,4 @@
-To install this calendar app (assuming you don't have Ruby 2.7.1 and Rails 6.0 installed), follow the appropriate set of instructions (Linux or MacOS Catalina):
+To install this calendar app (assuming you don't have Ruby 2.7.1 and Rails 6.0 installed), follow the appropriate set of instructions (Linux or MacOS):
 
 Ubuntu 20.04
 
@@ -36,11 +36,11 @@ gem install rails -v 6.0.2.2
 rbenv rehash
 rails -v # Rails 6.0.2.2
 
-
-git clone git@github.com:bleung9/calendar.git
+git clone git@github.com:bleung9/calendar.git insert_name_here
 
 cd into the directory, then:
 bundle install
+yarn install --check-files
 
 rake db:create
 rake db:migrate
@@ -48,15 +48,68 @@ rake db:migrate
 To run the server:
 rails s
 
+if that doesn't work:
+rails s -b 0.0.0.0
+
 To open up a console:
 rails c
 
 To run all tests:
 rspec
+OR
+bundle exec rspec
 
-To run a specific test:
-rspec path/to/test.rb
+To run a specific test file:
+rspec
+OR
+bundle exec path/to/test.rb
 
 ```
 
+
+MacOS
+
+```
+brew install rbenv ruby-build
+
+# Add rbenv to bash so that it loads every time you open a terminal
+echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
+source ~/.zshrc
+
+# Install Ruby
+rbenv install 2.7.1
+rbenv global 2.7.1
+ruby -v
+
+gem install rails -v 6.0.2.2
+rbenv rehash
+rails -v
+
+git clone git@github.com:bleung9/calendar.git insert_name_here
+
+cd into the directory, then:
+bundle install
+yarn install --check-files
+
+rake db:create
+rake db:migrate
+
+To run the server:
+rails s
+
+if that doesn't work:
+rails s -b 0.0.0.0
+
+To open up a console:
+rails c
+
+To run all tests:
+rspec
+OR
+bundle exec rspec
+
+To run a specific test file:
+rspec
+OR
+bundle exec path/to/test.rb
 

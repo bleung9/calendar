@@ -1,7 +1,5 @@
-//= require moment 
+//= require moment
 //= require fullcalendar
-
-require('jquery')
 
 $(document).on('turbolinks:load', function(){
   console.log("hihihi");
@@ -10,6 +8,7 @@ $(document).on('turbolinks:load', function(){
 $(document).on('turbolinks:before-cache', clearCalendar);
 
 function eventCalendar() {
+  debugger
   return $('#calendar').fullCalendar({});
 };
 
