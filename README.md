@@ -113,5 +113,5 @@ bundle exec rspec
 To run a specific test file:
 rspec
 OR
-bundle exec path/to/test.rb
+bundle exec rspec path/to/test.rb
 
