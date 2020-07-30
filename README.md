@@ -85,6 +85,8 @@ gem install rails -v 6.0.2.2
 rbenv rehash
 rails -v
 
+brew install sqlite3
+
 git clone git@github.com:bleung9/calendar.git insert_name_here
 
 cd into the directory, then:
