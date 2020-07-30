@@ -54,11 +54,14 @@ RSpec.describe Task, type: :model do
     end
 
     it "is invalid if it overlaps with another task (#no_overlap)" do
-      Task.create(task_type: "pickup", start_time: Time.now - 100, end_time: Time.now + 100, 
+      start_time = Time.now - 100
+      end_time = Time.now + 100
+      Task.create(task_type: "pickup", start_time: start_time, end_time: end_time, 
         description: "i am a description", location: "Toronto", driver: driver)
       
-        expect(task.valid?).to eq(false)
-      end
+      expect(task.valid?).to eq(false)
+      expect(task.errors.messages[:start_time].first). to eq("or end time overlaps with an existing task. Perhaps #{(end_time).strftime("%B %d %Y %I:%M%p")} to #{(end_time + 3600).strftime("%B %d %Y %I:%M%p")} is better?")
+    end
 
     it "is invalid if it doesn't have a description" do
       task.description = nil
