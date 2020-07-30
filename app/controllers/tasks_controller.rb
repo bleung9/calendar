@@ -98,6 +98,7 @@ class TasksController < ApplicationController
 
     def set_task
       @task = Task.where(id: params[:id], driver: @driver).first
+      render :file => "#{Rails.root}/public/404.html", :status => 404 if !@task
     end
 
     def create_task_type_dropdown

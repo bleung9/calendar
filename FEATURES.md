@@ -22,6 +22,7 @@ Extras:
   - no overlapping with an existing task
     - alternate time is suggested if an overlap is detected. The next available timeslot of the same length as the attempted submission will be suggested to the user
 - unit tests with good coverage on models and requests for drivers and tasks (spec/ folder)
+- error pages if you try to directly go to a URL for a driver or task that doesn't exist
 
 
 Files and folders of significance:
