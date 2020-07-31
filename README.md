@@ -51,7 +51,7 @@ rails s
 if that doesn't work:
 rails s -b 0.0.0.0
 
-To open up a console:
+To open up a console (you can manipulate the database from here if you desire):
 rails c
 
 To run all tests (run this in the directory that you cloned the repo into, not rails console):
@@ -102,7 +102,7 @@ rails s
 if that doesn't work:
 rails s -b 0.0.0.0
 
-To open up a console:
+To open up a console (you can manipulate the database from here if you desire):
 rails c
 
 To run all tests (run this in the directory that you cloned the repo into, not rails console):
