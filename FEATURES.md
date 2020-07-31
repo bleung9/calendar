@@ -1,4 +1,4 @@
-All visible features in this app should work as shown.
+All visible features in this app should work as shown. This is a full stack app, with all created drivers and tasks stored in a database.
 
 To start, go to http://localhost:3000/drivers to create drivers.
 
